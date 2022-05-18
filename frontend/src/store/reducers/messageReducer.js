@@ -26,3 +26,27 @@ import {GET_ALL_MESSAGES_FAIL,GET_ALL_MESSAGES_REQUEST,GET_ALL_MESSAGES_SUCCESS
             default:return state;
         }
     }
+
+    export const createMessageReducer=(state={message:""},action)=>{
+        switch(action.type){
+            case CREATE_MESSAGE_REQUEST:return{
+                loading:true,
+                success:false
+            }
+            case CREATE_MESSAGE_SUCCESS:return{
+                loading:false,
+                success:true,
+                message:action.payload
+            }
+            case CREATE_MESSAGE_FAIL:return{
+                loading:false,
+                success:false,
+                error:action.payload
+            }
+            case CREATE_MESSAGE_RESET:return{
+                message:"",
+                success:false
+            }
+            default:return state;
+        }
+    }
