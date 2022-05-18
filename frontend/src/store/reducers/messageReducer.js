@@ -50,3 +50,26 @@ import {GET_ALL_MESSAGES_FAIL,GET_ALL_MESSAGES_REQUEST,GET_ALL_MESSAGES_SUCCESS
             default:return state;
         }
     }
+
+    export const deleteMessageReducer=(state={message:""},action)=>{
+        switch(action.type){
+            case DELETE_MESSAGE_REQUEST:
+                return{
+                    loading:true,
+                    success:false
+                }
+            case DELETE_MESSAGE_SUCCESS:
+                return{
+                    loading:false,
+                    success:true,
+                    message:action.payload
+                }
+            case DELETE_MESSAGE_FAIL:
+                return{
+                    loading:false,
+                    error:action.payload,
+                    success:false
+                }
+            default:return state;
+        }
+    }
