@@ -1,5 +1,6 @@
 import Message from "../models/message.js";
 import User from "../models/user.js";
+
 export const createMessage = async (req, res, next) => {
   try {
     const message = new Message({
@@ -59,6 +60,7 @@ export const deleteMessage = async (req, res, next) => {
     return next(err);
   }
 };
+
 export const getAllMessages = async (req, res, next) => {
   try {
     const allMessages = await Message.find().populate("user", {

@@ -1,6 +1,5 @@
 import jwt from "jsonwebtoken";
 
-
 //This will make sure the user is logged in (Authentication)
 export const isLoggedIn = async (req, res, next) => {
   try {

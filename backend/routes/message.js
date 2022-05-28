@@ -6,6 +6,7 @@ import {
   getAllMessages,
 } from "../controller/message.js";
 import { isLoggedIn, correctUser } from "../middleware/auth.js";
+
 const router = express.Router({ mergeParams: true });
 
 router.get("/", isLoggedIn, getAllMessages);
