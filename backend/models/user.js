@@ -1,38 +1,45 @@
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import Message from "./messages";
+import Message from "./message.js";
 
-const userSchema = new mongoose.Schema ({
-    email: {
-        type : String,
-        required : true,
-        unique : true
+const userSchema = new mongoose.Schema({
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  username: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  profileImage: {
+    type: String,
+  },
+  messages: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Message",
     },
-    username: {
-        type : String,
-        required : true,
-        unique : true
-    },
-    password: {
-        type : String,
-        required : true
-    }  
+  ],
 });
 
-userSchema.pre("save", async function(next){
-    try{
-        if (!this.isModified("password")) {
-            return next();
-        }
-        let hashedPassword = await bcrypt.hash(this.password, 10);
-        this.password = hashedPassword;
-        return next();
+userSchema.pre("save", async function (next) {
+  try {
+    if (!this.isModified("password")) {
+      return next();
     }
-    catch (err) {
-        return next(err);
-    }
+    let hashedPassword = await bcrypt.hash(this.password, 10);
+    this.password = hashedPassword;
+    return next();
+  } catch (err) {
+    return next(err);
+  }
 });
-
 
 userSchema.methods.comparePassword = async function (candidatePassword, next) {
   try {
@@ -43,5 +50,6 @@ userSchema.methods.comparePassword = async function (candidatePassword, next) {
   }
 };
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model("User", userSchema);
+
 export default User;
