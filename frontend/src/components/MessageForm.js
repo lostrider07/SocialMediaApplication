@@ -4,7 +4,7 @@ import Navbar from '../containers/Navbar'
 import {useSelector,useDispatch} from 'react-redux'
 import Loader from './Loader';
 import Message from './Message';
-import {addMessage} from "../store/actions/messageAction"
+import {addMessage} from "../store/actions/messageActions"
 import {CREATE_MESSAGE_RESET} from "../store/constants/messageConstants"
 const MessageForm = () => {
     const history=useHistory();

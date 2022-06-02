@@ -2,7 +2,7 @@ import React,{useEffect} from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {useHistory} from "react-router-dom"
 import Navbar from '../containers/Navbar'
-import {allMessages} from "../store/actions/messageAction"
+import {allMessages} from "../store/actions/messageActions"
 import Loader from './Loader';
 import Message from './Message';
 import UserAside from './UserAside'
