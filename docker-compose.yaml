@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+  backend:
+    container_name: backend_container
+    restart: always
+    build: ./backend
+    ports:
+      - "5001:5000"
+    depends_on:
+      - mongo
+    
+  frontend:
+    container_name: frontend_container
+    restart: always
+    build: ./frontend
+    depends_on:
+      - backend
+
+  mongo:
+    container_name: mongo_backend
+    image: mongo
+    restart: always
+    expose:
+      - "27017"
+    ports:
+      - "5000:5000"
+    volumes:
+      - backendDB:/data/db
+    environment:
+      MONGO_DB : Socialmedia_Application
+      MONGO_USER : saiteja2@pdx.edu
+      MONGO_PASSWORD : Austin@2000
+
+volumes:
+  backendDB:
+    

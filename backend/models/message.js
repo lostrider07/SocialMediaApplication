@@ -28,6 +28,5 @@ messageSchema.pre("remove", async function (next) {
     return next(err);
   }
 });
-
 const Message = mongoose.model("Message", messageSchema);
 export default Message;

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Logo from "../images/warbler-logo.png";
 import { useHistory } from "react-router-dom";
-import { logout } from "../store/actions/userActions";
+import { logout } from "../store/actions/userAction";
 
 const Navbar = () => {
   const history = useHistory();
@@ -27,7 +27,7 @@ const Navbar = () => {
         {isAuthenticated ? (
           <ul className="nav navbar-nav navbar-right">
             <li>
-              <Link onClick={signoff}>Logout</Link>
+              <Link to="/" onClick={signoff}>Logout</Link>
             </li>
             <li>
               <Link onClick={newMessage}>New Message</Link>

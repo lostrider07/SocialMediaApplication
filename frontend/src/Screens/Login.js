@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../store/actions/userActions";
+import { login } from "../store/actions/userAction";
 import { useHistory } from "react-router-dom";
 import Loader from "../components/Loader";
 import Message from "../components/Message";

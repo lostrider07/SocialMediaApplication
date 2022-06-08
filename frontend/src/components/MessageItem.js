@@ -2,7 +2,7 @@ import React from "react";
 import Moment from "react-moment";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeMessage } from "../store/actions/messageActions";
+import { removeMessage } from "../store/actions/messageAction";
 import DefaultProfileImage from "../images/default-profile-image.jpg";
 const MessageItem = ({ date, text, profileImage, username, userId, msgId }) => {
   const dispatch = useDispatch();
