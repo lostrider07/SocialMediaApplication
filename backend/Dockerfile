@@ -4,6 +4,9 @@ WORKDIR /app
 
 COPY package*.json /
 
+COPY package-lock.json ./
+
+
 RUN npm install cors body-parser mongoose express nodemon
 
 RUN npm install

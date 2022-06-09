@@ -1,4 +1,4 @@
-version: '3'
+version: "3.7"
 
 services:
   backend:
@@ -9,6 +9,9 @@ services:
       - "5001:5000"
     depends_on:
       - mongo
+    # volumes:
+    #   - ".:/app"
+    #   - "/app/node_modules"
     
   frontend:
     container_name: frontend_container
@@ -16,6 +19,11 @@ services:
     build: ./frontend
     depends_on:
       - backend
+    # volumes:
+    #   - ".:/app"
+    #   - "/app/node_modules"
+    # ports:
+    #   - "3001:3000"
 
   mongo:
     container_name: mongo_backend
