@@ -37,8 +37,8 @@ services:
       - backendDB:/data/db
     environment:
       MONGO_DB : Socialmedia_Application
-      MONGO_USER : saiteja2@pdx.edu
-      MONGO_PASSWORD : Austin@2000
+      MONGO_USER : 
+      MONGO_PASSWORD : 
 
 volumes:
   backendDB:
